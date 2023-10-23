@@ -2,10 +2,20 @@
 
 namespace Character.Inventory.Items
 {
-    public class Item : ScriptableObject
+    public class Item : MonoBehaviour
     {
-        public string name;
-        public Sprite icon;
+        [SerializeField] private ItemData _itemData;
+
+        public ItemData GetData() => _itemData;
         
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.transform.CompareTag("Player") &&
+                collision.transform.TryGetComponent(out Inventory inventory))
+            {
+                inventory.AddItem(this);
+                gameObject.SetActive(false);
+            }
+        }
     }
 }
