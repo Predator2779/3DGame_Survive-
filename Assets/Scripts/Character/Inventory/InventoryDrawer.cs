@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class InventoryDrawer : MonoBehaviour
 {
     [SerializeField] private RectTransform _inventoryPanel;
+    [SerializeField] private RectTransform _content;
     
     public void DisplayInventory(Item[] items)
     {
@@ -16,7 +17,7 @@ public class InventoryDrawer : MonoBehaviour
             var icon = new GameObject("Icon");
             
             icon.AddComponent<Image>().sprite = item.GetData().GetIcon();
-            icon.transform.SetParent(_inventoryPanel);
+            icon.transform.SetParent(_content);
         }
     }
 }
