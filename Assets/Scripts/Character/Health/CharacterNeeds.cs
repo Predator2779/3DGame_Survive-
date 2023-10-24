@@ -22,12 +22,13 @@ namespace Character.Health
 
         [SerializeField] [Range(0, 100f)] private float _waterPoints;
         [SerializeField] [Range(0, 100f)] private float _foodPoints;
-        
-        private float _lastCheck;
+
+        private Timer _timer;
 
         private void Start()
         {
-            _lastCheck = _checkVitalSigns;
+            _timer = new Timer(_checkVitalSigns, true);
+            
             _waterPoints = 100f;
             _foodPoints = 100f;
         }
@@ -55,18 +56,7 @@ namespace Character.Health
             _health.DisplayHealthBar();
         }
 
-        private bool ItsTime()
-        {
-            _lastCheck -= Time.deltaTime;
-
-            if (_lastCheck <= 0)
-            {
-                _lastCheck = _checkVitalSigns;
-                return true;
-            }
-
-            return false;
-        }
+        private bool ItsTime() => _timer.IsTimesUp();
 
         public void AddWater(float value) => AddValue(ref _waterPoints, value);
 

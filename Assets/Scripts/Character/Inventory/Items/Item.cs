@@ -4,9 +4,7 @@ namespace Character.Inventory.Items
 {
     public class Item : MonoBehaviour
     {
-        [SerializeField] private ItemData _itemData;
-
-        public ItemData GetData() => _itemData;
+        public ItemData ItemData { get; set; }
         
         private void OnCollisionEnter(Collision collision)
         {

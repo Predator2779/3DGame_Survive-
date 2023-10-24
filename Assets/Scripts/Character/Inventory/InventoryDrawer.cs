@@ -16,7 +16,7 @@ public class InventoryDrawer : MonoBehaviour
             var item = items[i];
             var icon = new GameObject("Icon");
             
-            icon.AddComponent<Image>().sprite = item.GetData().GetIcon();
+            icon.AddComponent<Image>().sprite = item.ItemData.GetIcon();
             icon.transform.SetParent(_content);
         }
     }

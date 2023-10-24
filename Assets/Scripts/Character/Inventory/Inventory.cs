@@ -20,6 +20,15 @@ namespace Character.Inventory
             if (_items.Contains(item)) _items.Remove(item);
         }
 
+        public void RemoveItem(int index)
+        {
+            if (_items.Contains(_items[index])) _items.Remove(_items[index]);
+        }
+
+        public Item GetItem(int index) => _items[index];
+
+        public int GetCount() => _items.Count;
+        
         public void DisplayInventory() => _invDrawer.DisplayInventory(_items.ToArray());
     }
 }
