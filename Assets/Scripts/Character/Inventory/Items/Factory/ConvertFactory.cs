@@ -14,11 +14,12 @@ namespace Character.Inventory.Items.Factory
             _itemConverter = GetComponent<ItemConverter>();
         }
 
-        protected override void Spawn(Item item)
+        protected override void SpawnAndRemove(Item item)
         {
-            item = _itemConverter.ConvertItem(item);
+            var newItem = _itemConverter.ConvertItem(item);
             
-            base.Spawn(item);
+            Spawn(newItem);
+            Remove(item);
         }
     }
 }

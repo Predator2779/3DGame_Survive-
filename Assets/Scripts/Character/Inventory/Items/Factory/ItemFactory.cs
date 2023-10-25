@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Character.Control;
+using Other;
+using UnityEngine;
 
 namespace Character.Inventory.Items.Factory
 {
@@ -30,13 +32,17 @@ namespace Character.Inventory.Items.Factory
                     _timer != null &&
                     _timer.IsTimesUp()
             )
-                Spawn(_inventory.GetItem(0));
+                SpawnAndRemove(_inventory.GetItem(0));
         }
 
-        protected virtual void Spawn(Item item)
+        protected virtual void SpawnAndRemove(Item item)
         {
-            _spawner.SpawnItem(item);
-            _inventory.RemoveItem(item);
+            Spawn(item);
+            Remove(item);
         }
+        
+        protected void Spawn(Item item) => _spawner.SpawnItem(item);
+
+        protected void Remove(Item item) => _inventory.RemoveItem(item);
     }
 }

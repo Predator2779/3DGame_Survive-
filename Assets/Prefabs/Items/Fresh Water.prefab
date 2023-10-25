@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8529715109970919478}
   - component: {fileID: 4108285057252395722}
   m_Layer: 0
-  m_Name: Water
+  m_Name: Fresh Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44c625f70d355a8469f69a43865c3241, type: 2}
+  - {fileID: 2100000, guid: 3e0d9a3ff36dc8148a7ed77bdca166a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ec8f647478b064ea055056202d80d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemData: {fileID: 11400000, guid: b02e09b3bf8e8a74ca19d99c398cd7ff, type: 2}

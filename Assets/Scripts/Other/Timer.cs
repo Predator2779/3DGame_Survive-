@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Character
+namespace Other
 {
     public class Timer
     {

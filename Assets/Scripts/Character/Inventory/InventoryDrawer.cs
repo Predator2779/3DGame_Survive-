@@ -2,22 +2,48 @@ using Character.Inventory.Items;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryDrawer : MonoBehaviour
+namespace Character.Inventory
 {
-    [SerializeField] private RectTransform _inventoryPanel;
-    [SerializeField] private RectTransform _content;
-    
-    public void DisplayInventory(Item[] items)
+    public class InventoryDrawer : MonoBehaviour
     {
-        _inventoryPanel.gameObject.SetActive(true);
-        
-        for (int i = 0; i < items.Length; i++)
+        [SerializeField] private RectTransform _inventoryPanel;
+        [SerializeField] private RectTransform _content;
+
+        private bool _isDisplayed;
+    
+        public void DisplayInventory(Item[] items)
         {
-            var item = items[i];
-            var icon = new GameObject("Icon");
+            if (_isDisplayed)
+            {
+                Clear();
             
-            icon.AddComponent<Image>().sprite = item.ItemData.GetIcon();
-            icon.transform.SetParent(_content);
+                _isDisplayed = false;
+                _inventoryPanel.gameObject.SetActive(false);
+                return;
+            }
+        
+            _inventoryPanel.gameObject.SetActive(true);
+
+            var length = items.Length;
+
+            for (int i = 0; i < length; i++)
+            {
+                var item = items[i];
+                var icon = new GameObject("Icon");
+
+                icon.AddComponent<Image>().sprite = item.ItemData.GetIcon();
+                icon.transform.SetParent(_content);
+            }
+
+            _isDisplayed = true;
+        }
+
+        private void Clear()
+        {
+            var length = _content.childCount;
+
+            for (int i = 0; i < length; i++)
+                Destroy(_content.GetChild(i));
         }
     }
 }
