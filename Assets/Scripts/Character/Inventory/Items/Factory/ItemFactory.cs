@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 
-namespace Character.Inventory.Items
+namespace Character.Inventory.Items.Factory
 {
     [RequireComponent(typeof(ItemSpawner)), RequireComponent(typeof(Inventory))]
     public class ItemFactory : MonoBehaviour
     {
         [SerializeField] private float _spawnDelay;
-        
+
         private ItemSpawner _spawner;
         private Inventory _inventory;
         private Timer _timer;
 
-        private void Start()
+        protected virtual void Start()
         {
             _timer = new Timer(_spawnDelay, true);
 
@@ -19,17 +19,24 @@ namespace Character.Inventory.Items
             _inventory = GetComponent<Inventory>();
         }
 
-        private void Update()
+        protected virtual void Update() => SpawnFromInventory();
+
+        private void SpawnFromInventory()
         {
             int length = _inventory.GetCount();
 
-            if (length != 0) if (_timer != null && _timer.IsTimesUp()) Spawn(0);
+            if (
+                    length != 0 &&
+                    _timer != null &&
+                    _timer.IsTimesUp()
+            )
+                Spawn(_inventory.GetItem(0));
         }
 
-        private void Spawn(int index)
+        protected virtual void Spawn(Item item)
         {
-            _spawner.SpawnItem(_inventory.GetItem(index));
-            _inventory.RemoveItem(index);
+            _spawner.SpawnItem(item);
+            _inventory.RemoveItem(item);
         }
     }
 }

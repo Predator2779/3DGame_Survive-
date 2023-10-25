@@ -1062,7 +1062,8 @@ GameObject:
   - component: {fileID: 840208085}
   - component: {fileID: 840208088}
   - component: {fileID: 840208087}
-  - component: {fileID: 840208086}
+  - component: {fileID: 840208090}
+  - component: {fileID: 840208089}
   m_Layer: 0
   m_Name: Vaporizer
   m_TagString: Untagged
@@ -1083,28 +1084,15 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1512755308}
   - {fileID: 1100341993}
   - {fileID: 804442777}
   - {fileID: 1596563527}
   - {fileID: 1170654857}
   - {fileID: 803744819}
   - {fileID: 343710442}
-  - {fileID: 1512755308}
   m_Father: {fileID: 1781753323}
   m_LocalEulerAnglesHint: {x: 0, y: -34.053, z: 0}
---- !u!114 &840208086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840208084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8c1c2fcfa15b244d9e0b012134e7002, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnDelay: 5
 --- !u!114 &840208087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,6 +1134,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPosition: {fileID: 1512755308}
+--- !u!114 &840208089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840208084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6731bb18a4801248afa7f6c56294c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnDelay: 1
+--- !u!114 &840208090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840208084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d8415709241d44c82f9e90179bc073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputItem: {fileID: 0}
+  _outputItem: {fileID: 0}
 --- !u!20 &963194227 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2625730237560602162, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
@@ -1600,7 +1615,7 @@ Transform:
   m_GameObject: {fileID: 1512755307}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -1.852}
+  m_LocalPosition: {x: 0, y: 0, z: -2.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2497,6 +2512,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7081724314443754881, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203826158128550921, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.2975
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203826158128550921, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.952
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203826158128550921, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203826158128550921, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.855
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203826158128550921, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203826158128550921, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203826158128550921, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203826158128550921, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9072529727124649668, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}

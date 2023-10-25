@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Character.Inventory.Items
+namespace Character.Inventory.Items.Factory
 {
     public class ItemSpawner : MonoBehaviour
     {
