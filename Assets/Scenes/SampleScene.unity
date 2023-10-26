@@ -948,7 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6731bb18a4801248afa7f6c56294c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnDelay: 1
+  _spawnDelay: 5
 --- !u!114 &840208090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,6 +2160,22 @@ PrefabInstance:
       propertyPath: _invDrawer
       value: 
       objectReference: {fileID: 62332038}
+    - target: {fileID: 245484611511011042, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
+      propertyPath: _items.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245484611511011042, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
+      propertyPath: _items.Array.data[0]
+      value: 
+      objectReference: {fileID: 4108285057252395722, guid: bc4cd76665e5c2d4bb442624050b39a5, type: 3}
+    - target: {fileID: 1936724469836502097, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936724469836502097, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3798224637919611279, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
       propertyPath: m_Name
       value: PLAYER

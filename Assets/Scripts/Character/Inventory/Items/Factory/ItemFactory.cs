@@ -1,5 +1,4 @@
-﻿using Character.Control;
-using Other;
+﻿using Other;
 using UnityEngine;
 
 namespace Character.Inventory.Items.Factory
@@ -27,11 +26,9 @@ namespace Character.Inventory.Items.Factory
         {
             int length = _inventory.GetCount();
 
-            if (
-                    length != 0 &&
-                    _timer != null &&
-                    _timer.IsTimesUp()
-            )
+            if (length != 0 &&
+                _timer != null &&
+                _timer.IsTimesUp())
                 SpawnAndRemove(_inventory.GetItem(0));
         }
 
@@ -40,7 +37,7 @@ namespace Character.Inventory.Items.Factory
             Spawn(item);
             Remove(item);
         }
-        
+
         protected void Spawn(Item item) => _spawner.SpawnItem(item);
 
         protected void Remove(Item item) => _inventory.RemoveItem(item);

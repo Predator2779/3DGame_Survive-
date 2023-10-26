@@ -10,7 +10,7 @@ namespace Character.Inventory
         [SerializeField] private RectTransform _content;
 
         private bool _isDisplayed;
-
+        
         public void DisplayInventory(Item[] items)
         {
             _inventoryPanel.gameObject.SetActive(SwitchDisplay());
