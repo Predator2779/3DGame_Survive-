@@ -4,13 +4,13 @@ namespace Character.Inventory.Items
 {
     public class Item : MonoBehaviour
     {
+        [SerializeField] private ItemData _itemData;
+        
         public ItemData ItemData 
         { 
             get => _itemData;
             set => _itemData = value;
         }
-
-        [SerializeField] private ItemData _itemData;
         
         private void OnCollisionEnter(Collision collision)
         {
