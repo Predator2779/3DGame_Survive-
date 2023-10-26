@@ -10,20 +10,26 @@ namespace Character.Inventory
         [SerializeField] private RectTransform _content;
 
         private bool _isDisplayed;
-    
+
         public void DisplayInventory(Item[] items)
         {
-            if (_isDisplayed)
-            {
-                Clear();
-            
-                _isDisplayed = false;
-                _inventoryPanel.gameObject.SetActive(false);
-                return;
-            }
-        
-            _inventoryPanel.gameObject.SetActive(true);
+            _inventoryPanel.gameObject.SetActive(SwitchDisplay());
 
+            Clear();
+
+            if (_isDisplayed) CreateItems(items);
+        }
+
+        private bool SwitchDisplay()
+        {
+            if (_isDisplayed) _isDisplayed = false;
+            else _isDisplayed = true;
+
+            return _isDisplayed;
+        }
+
+        private void CreateItems(Item[] items)
+        {
             var length = items.Length;
 
             for (int i = 0; i < length; i++)
@@ -31,11 +37,9 @@ namespace Character.Inventory
                 var item = items[i];
                 var icon = new GameObject("Icon");
 
-                icon.AddComponent<Image>().sprite = item.ItemData.GetIcon();
                 icon.transform.SetParent(_content);
+                icon.AddComponent<Image>().sprite = item.ItemData.GetIcon();
             }
-
-            _isDisplayed = true;
         }
 
         private void Clear()
@@ -43,7 +47,7 @@ namespace Character.Inventory
             var length = _content.childCount;
 
             for (int i = 0; i < length; i++)
-                Destroy(_content.GetChild(i));
+                Destroy(_content.GetChild(i).gameObject);
         }
     }
 }
