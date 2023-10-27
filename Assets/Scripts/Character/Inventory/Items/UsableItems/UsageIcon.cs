@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Character.Inventory.Items.UsableItems
 {
+    [Serializable]
     public class UsageIcon : MonoBehaviour
     {
-        private Item _item;
+        [SerializeField] private Item _item;
 
         public void SetItem(Item item) => _item = item;
         
@@ -12,9 +14,7 @@ namespace Character.Inventory.Items.UsableItems
         {
             if (_item.ItemData.CanSelfUse()) _item.GetComponent<IUsable>().Use(person);
             
-            /// также удалить из InvDrawer
-            
-            person.GetInventory().RemoveItem(_item); /// удаление после использования
+            person.GetInventory().RemoveItem(_item);
         } 
     }
 }

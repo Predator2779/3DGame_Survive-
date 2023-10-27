@@ -24,7 +24,7 @@ namespace Character.Inventory.Factory
 
             _parent ??= Instantiate
             (
-                    new GameObject(name),
+                    new GameObject(name: $"{name}_items"),
                     parent: _pathObjs
             ).transform;
 

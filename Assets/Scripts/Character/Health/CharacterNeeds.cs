@@ -1,5 +1,4 @@
-﻿using Character.Control;
-using Other;
+﻿using Other;
 using UnityEngine;
 
 namespace Character.Health
@@ -18,7 +17,7 @@ namespace Character.Health
 
         [Tooltip("Расход еды в N секунд (в %)")]
         [SerializeField] private float _foodConsumption;
-        
+
         [Tooltip("Проверка в указанные N секунд")]
         [SerializeField] private float _checkVitalSigns = 3f;
 
@@ -29,8 +28,8 @@ namespace Character.Health
 
         private void Start()
         {
-            _timer = new Timer(_checkVitalSigns, true);
-            
+            _timer = new Timer(_checkVitalSigns, false);
+
             _waterPoints = 100f;
             _foodPoints = 100f;
         }
@@ -46,8 +45,6 @@ namespace Character.Health
 
                 if (_waterPoints < 10 || _foodPoints < 10)
                     _health.TakeHeavyDamage(_healthDamage);
-
-                DisplayIndicators();
             }
         }
 
@@ -56,9 +53,16 @@ namespace Character.Health
             _water.SetCurrentValue(_waterPoints);
             _food.SetCurrentValue(_foodPoints);
             _health.DisplayHealthBar();
+
+            _timer = new Timer(_checkVitalSigns, false);
         }
 
-        private bool ItsTime() => _timer.IsTimesUp();
+        private bool ItsTime()
+        {
+            if (_timer != null) return _timer.IsTimesUp();
+
+            return false;
+        }
 
         public void AddWater(float value) => AddValue(ref _waterPoints, value);
 
@@ -73,6 +77,8 @@ namespace Character.Health
             if (mainPoints + points > 100f) mainPoints = 100f;
             else if (mainPoints + points < 0) mainPoints = 0;
             else mainPoints += points;
+            
+            DisplayIndicators();
         }
     }
 }

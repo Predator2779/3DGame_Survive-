@@ -1,6 +1,7 @@
-using General;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using EventHandler = General.EventHandler;
 
 namespace Character.Control
 {
@@ -10,31 +11,30 @@ namespace Character.Control
 
         private NavMeshAgent _agent;
         private bool _canMove;
-    
+
         private void Start()
         {
             _agent = GetComponent<NavMeshAgent>();
-        
-            EventHandler.OnMouseButtonUp.AddListener(Move);
-            EventHandler.OnButtonUp.AddListener(SwitchMove);
+
+            EventHandler.OnInventoryButtonUp.AddListener(SwitchMove);
         }
 
-        private void Move(int mouseButton)
+        public void Move()
         {
-            if (_canMove || mouseButton != 0) return;
-        
+            if (_canMove) return;
+
             Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
-        
+
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
                 _agent.SetDestination(hit.point);
         }
 
-        private void SwitchMove(KeyCode button)
+        private void SwitchMove()
         {
-            if (button != KeyCode.Tab) return;
-
             if (!_canMove) _canMove = true;
             else _canMove = false;
         }
+
+        private void OnDestroy() => EventHandler.OnInventoryButtonUp.RemoveListener(SwitchMove);
     }
 }

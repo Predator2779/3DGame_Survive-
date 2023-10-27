@@ -9,7 +9,7 @@ namespace Character.Inventory
         [SerializeField] private InventoryDrawer _invDrawer;
         [SerializeField, Min(1)] private int _size;
         [SerializeField] private List<Item> _items = new();
-        
+
         public void AddItem(Item item)
         {
             if (!_items.Contains(item) && _items.Count < _size) _items.Add(item);
@@ -24,9 +24,6 @@ namespace Character.Inventory
 
         public int GetCount() => _items.Count;
 
-        public void DisplayInventory()
-        {
-            _invDrawer.DisplayInventory(_items.ToArray());
-        }
+        public void DisplayInventory(Person person) => _invDrawer.DisplayInventory(person);
     }
 }
