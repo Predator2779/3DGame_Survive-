@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using General;
+using UnityEngine;
 using EventHandler = General.EventHandler;
 
 namespace Character.Control

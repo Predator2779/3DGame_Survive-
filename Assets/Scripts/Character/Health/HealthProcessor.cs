@@ -1,14 +1,19 @@
+using General;
 using UnityEngine;
 
 public class HealthProcessor : MonoBehaviour, IHealth
 {
-    [Header("HealthBar")] 
+    [Header("HealthBar")]
     [SerializeField] private Indicator _healthBar;
 
-    [Header("Parameters")] 
+    [Header("Parameters")]
     [SerializeField] private float _maxHitPoints;
+
     [SerializeField] private float _currentHitPoints;
     [SerializeField] [Min(1)] private float _coefDefense;
+
+    [Header("Death")]
+    [SerializeField] private Transform _respawnPoint;
 
     private Health _health;
 
@@ -17,18 +22,18 @@ public class HealthProcessor : MonoBehaviour, IHealth
     private void Initialize()
     {
         _health = new Health(_maxHitPoints, _coefDefense);
-        
+
         DisplayHealthBar();
     }
-    
+
     public void TakeDamage(float damage)
     {
         _health.TakeDamage(damage);
 
         DisplayHealthBar();
         CheckDeath();
-    }  
-    
+    }
+
     public void TakeHeavyDamage(float damage)
     {
         _health.TakeHeavyDamage(damage);
@@ -49,7 +54,7 @@ public class HealthProcessor : MonoBehaviour, IHealth
     public void DisplayHealthBar()
     {
         _currentHitPoints = _health.HitPoints;
-        
+
         if (_healthBar != null)
             _healthBar.SetCurrentValue(_currentHitPoints * 100 / _maxHitPoints);
     }
@@ -58,6 +63,6 @@ public class HealthProcessor : MonoBehaviour, IHealth
 
     private void CheckDeath()
     {
-
+        if (_currentHitPoints <= 0) new Transition().MoveObject(gameObject, _respawnPoint.position);
     }
 }
