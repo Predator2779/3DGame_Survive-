@@ -1,5 +1,6 @@
 using Character.Inventory.Items;
 using Character.Inventory.Items.UsableItems;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,11 +40,21 @@ namespace Character.Inventory
                 var icon = new GameObject("Icon");
 
                 icon.transform.SetParent(_content);
-                icon.AddComponent<Image>().sprite = item.ItemData.GetIcon();
+                
+                var button = icon.AddComponent<Button>();
+                button.image.sprite = item.ItemData.GetIcon();
+                button.GetComponent<Button>().onClick.AddListener(Ahah);
+                        
+                // icon.AddComponent<Image>().sprite = item.ItemData.GetIcon();
                 icon.AddComponent<UsageIcon>().SetItem(item);
             }
         }
-        
+
+        private void Ahah()
+        {
+            print("ahahahah");
+        }
+
         private void Clear()
         {
             var length = _content.childCount;
