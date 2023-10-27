@@ -2,9 +2,9 @@
 {
     public class DrinkItem : UsableItem
     {
-        public override void Use(Person person, float amount)
+        public override void Use(Person person)
         {
-            person.GetCharacterNeeds().AddWater(amount);
+            person.GetCharacterNeeds().AddWater(ItemData.GetAmount());
         }
     }
 }

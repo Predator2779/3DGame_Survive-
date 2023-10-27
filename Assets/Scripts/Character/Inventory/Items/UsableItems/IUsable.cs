@@ -2,6 +2,6 @@
 {
     public interface IUsable
     {
-        public void Use(Person person, float amount);
+        public void Use(Person person);
     }
 }

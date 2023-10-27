@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using Character.Inventory.Items;
 using UnityEngine;
-using EventHandler = General.EventHandler;
 
 namespace Character.Inventory
 {

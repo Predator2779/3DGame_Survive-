@@ -2,6 +2,6 @@
 {
     public abstract class UsableItem : Item, IUsable
     {
-        public abstract void Use(Person person, float amount);
+        public abstract void Use(Person person);
     }
 }

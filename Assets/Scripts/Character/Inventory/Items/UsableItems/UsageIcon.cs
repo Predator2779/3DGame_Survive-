@@ -6,11 +6,15 @@ namespace Character.Inventory.Items.UsableItems
     {
         private Item _item;
 
-        public void SetItem(Item value) => _item = value;
+        public void SetItem(Item item) => _item = item;
         
-        public void Use(Person person, float amount)
+        public void Use(Person person)
         {
-            if (_item.ItemData.CanSelfUse()) _item.GetComponent<IUsable>().Use(person, amount);
+            if (_item.ItemData.CanSelfUse()) _item.GetComponent<IUsable>().Use(person);
+            
+            /// также удалить из InvDrawer
+            
+            person.GetInventory().RemoveItem(_item); /// удаление после использования
         } 
     }
 }

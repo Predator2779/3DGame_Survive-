@@ -1,4 +1,5 @@
 using Character.Inventory.Items;
+using Character.Inventory.Items.UsableItems;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,9 +40,10 @@ namespace Character.Inventory
 
                 icon.transform.SetParent(_content);
                 icon.AddComponent<Image>().sprite = item.ItemData.GetIcon();
+                icon.AddComponent<UsageIcon>().SetItem(item);
             }
         }
-
+        
         private void Clear()
         {
             var length = _content.childCount;

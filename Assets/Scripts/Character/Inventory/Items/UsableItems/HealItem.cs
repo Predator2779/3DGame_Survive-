@@ -2,9 +2,9 @@
 {
     public class HealItem : UsableItem
     {
-        public override void Use(Person person, float amount)
+        public override void Use(Person person)
         {
-            person.GetHealth().TakeHeal(amount);
+            person.GetHealth().TakeHeal(ItemData.GetAmount());
         }
     }
 }

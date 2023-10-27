@@ -2,9 +2,9 @@
 {
     public class PoisonItem : UsableItem
     {
-        public override void Use(Person person, float amount)
+        public override void Use(Person person)
         {
-            person.GetHealth().TakeDamage(amount);
+            person.GetHealth().TakeDamage(ItemData.GetAmount());
         }
     }
 }
