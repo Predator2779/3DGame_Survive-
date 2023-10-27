@@ -15,3 +15,5 @@ MonoBehaviour:
   _name: Sea Water
   _description: Just sea water
   _icon: {fileID: 21300000, guid: b400c539a7e56f04f825e78ac88fa016, type: 3}
+  _amount: -5
+  _selfUsing: 1

@@ -1,4 +1,5 @@
-﻿using Other;
+﻿using Character.Inventory.Factory;
+using Other;
 using UnityEngine;
 
 namespace Character.Inventory.Items.Factory

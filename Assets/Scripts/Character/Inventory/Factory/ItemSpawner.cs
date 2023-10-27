@@ -1,11 +1,17 @@
-﻿using UnityEngine;
+﻿using Character.Inventory.Items;
+using UnityEngine;
 
-namespace Character.Inventory.Items.Factory
+namespace Character.Inventory.Factory
 {
     public class ItemSpawner : MonoBehaviour
     {
         [SerializeField] private Transform _spawnPosition;
+
+        private Transform _pathObjs;
+        private Transform _parent;
         
+        private void OnValidate() => _pathObjs ??= GameObject.Find("ITEMS").transform;
+
         public void SpawnItem(Item item)
         {
             var data = item.ItemData;
@@ -15,7 +21,14 @@ namespace Character.Inventory.Items.Factory
                     _spawnPosition.position,
                     Quaternion.identity
             );
-            
+
+            _parent ??= Instantiate
+            (
+                    new GameObject(name),
+                    parent: _pathObjs
+            ).transform;
+
+            clone.transform.SetParent(_parent);
             clone.GetComponent<Item>().ItemData = data;
         }
     }
