@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using Character.Inventory.Items;
+using Character.Inventory.Items.Factory;
+using UnityEngine;
 
-namespace Character.Inventory.Items.Factory
+namespace Character.Inventory.Factory
 {
     [RequireComponent(typeof(ItemConverter))]
     public class ConvertFactory : ItemFactory

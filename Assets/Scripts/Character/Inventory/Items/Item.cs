@@ -2,7 +2,7 @@
 
 namespace Character.Inventory.Items
 {
-    public class Item : MonoBehaviour
+    public class Item : MonoBehaviour /// abstract?
     {
         [SerializeField] private ItemData _itemData;
         

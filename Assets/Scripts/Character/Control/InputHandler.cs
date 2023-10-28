@@ -1,4 +1,4 @@
-﻿using General;
+﻿using Character.Inventory;
 using UnityEngine;
 using EventHandler = General.EventHandler;
 
@@ -8,6 +8,7 @@ namespace Character.Control
     public class InputHandler : MonoBehaviour
     {
         [SerializeField] private Person _person;
+        [SerializeField] private InventoryDrawer _invDrawer;
 
         private void OnValidate() => _person ??= GetComponent<Person>();
 
@@ -19,7 +20,7 @@ namespace Character.Control
             
             if (Input.GetKeyUp(KeyCode.Tab))
             {
-                _person.GetInventory().DisplayInventory(_person);
+                _invDrawer.DisplayInventory(_person);
                 
                 EventHandler.OnInventoryButtonUp?.Invoke();
             }

@@ -1,8 +1,9 @@
-﻿using Character.Inventory.Factory;
+﻿using Character.Inventory.Items;
+using Character.Inventory.Spawners;
 using Other;
 using UnityEngine;
 
-namespace Character.Inventory.Items.Factory
+namespace Character.Inventory.Factory
 {
     [RequireComponent(typeof(ItemSpawner)), RequireComponent(typeof(Inventory))]
     public class ItemFactory : MonoBehaviour

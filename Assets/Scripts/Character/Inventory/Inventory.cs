@@ -6,7 +6,6 @@ namespace Character.Inventory
 {
     public class Inventory : MonoBehaviour
     {
-        [SerializeField] private InventoryDrawer _invDrawer;
         [SerializeField, Min(1)] private int _size;
         [SerializeField] private List<Item> _items = new();
 
@@ -23,7 +22,5 @@ namespace Character.Inventory
         public Item GetItem(int index) => _items[index];
 
         public int GetCount() => _items.Count;
-
-        public void DisplayInventory(Person person) => _invDrawer.DisplayInventory(person);
     }
 }
