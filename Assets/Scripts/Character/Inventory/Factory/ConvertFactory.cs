@@ -1,5 +1,4 @@
 ﻿using Character.Inventory.Items;
-using Character.Inventory.Items.Factory;
 using UnityEngine;
 
 namespace Character.Inventory.Factory

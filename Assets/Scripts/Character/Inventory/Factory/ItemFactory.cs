@@ -5,33 +5,32 @@ using UnityEngine;
 
 namespace Character.Inventory.Factory
 {
-    [RequireComponent(typeof(ItemSpawner)), RequireComponent(typeof(Inventory))]
-    public class ItemFactory : MonoBehaviour
+    [RequireComponent(typeof(ItemSpawner))]
+    public class ItemFactory : MachineTool
     {
         [SerializeField] private float _spawnDelay;
 
         private ItemSpawner _spawner;
-        private Inventory _inventory;
         private Timer _timer;
 
-        protected virtual void Start()
+        protected override void Start()
         {
+            base.Start();
+            
             _timer = new Timer(_spawnDelay, true);
-
             _spawner = GetComponent<ItemSpawner>();
-            _inventory = GetComponent<Inventory>();
         }
 
         protected virtual void Update() => SpawnFromInventory();
 
         private void SpawnFromInventory()
         {
-            int length = _inventory.GetCount();
+            int length = GetInventory().GetCount();
 
             if (length != 0 &&
                 _timer != null &&
                 _timer.IsTimesUp())
-                SpawnAndRemove(_inventory.GetItem(0));
+                SpawnAndRemove(GetInventory().GetItem(0));
         }
 
         protected virtual void SpawnAndRemove(Item item)
@@ -42,6 +41,6 @@ namespace Character.Inventory.Factory
 
         protected void Spawn(Item item) => _spawner.SpawnItem(item);
 
-        protected void Remove(Item item) => _inventory.RemoveItem(item);
+        protected void Remove(Item item) => GetInventory().RemoveItem(item);
     }
 }

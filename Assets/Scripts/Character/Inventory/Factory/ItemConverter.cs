@@ -1,6 +1,7 @@
+using Character.Inventory.Items;
 using UnityEngine;
 
-namespace Character.Inventory.Items.Factory
+namespace Character.Inventory.Factory
 {
     public class ItemConverter : MonoBehaviour
     {

@@ -11,9 +11,15 @@ namespace Character.Control
         [SerializeField] private Camera _cam;
         [SerializeField] private InventoryDrawer _invDrawer;
 
+        private RaycastHit _hit;
+
         private void Start() => _person ??= GetComponent<Person>();
 
-        private void Update() => CheckKeys();
+        private void Update()
+        {
+            SetRay();
+            CheckKeys();
+        }
 
         private void CheckKeys()
         {
@@ -27,12 +33,13 @@ namespace Character.Control
             }
         }
 
-        private void MoveCharacter()
+        private void SetRay()
         {
             Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
-                _person.GetCharacterMove().Move(hit.point);
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity)) _hit = hit;
         }
+
+        private void MoveCharacter() => _person.GetCharacterMove().Move(_hit.point);
     }
 }
