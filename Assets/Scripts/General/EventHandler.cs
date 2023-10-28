@@ -1,9 +1,13 @@
-﻿using UnityEngine.Events;
+﻿using Character.Inventory.Items;
+using UnityEngine.Events;
 
 namespace General
 {
     public static class EventHandler
     {
-        public static UnityEvent OnInventoryButtonUp = new();
+        public static bool IsInventoryInteract { get; set; }
+
+        public static UnityEvent<Item> OnUsingItem = new();
+        public static UnityEvent OnGivingItem = new();
     }
 }

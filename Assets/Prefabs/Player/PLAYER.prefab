@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 5510163581596124744}
   - component: {fileID: 245484611511011042}
   - component: {fileID: 1603520651519798159}
-  - component: {fileID: 667817901085963524}
+  - component: {fileID: 4181467301861551645}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -436,8 +436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db8c0b9f4e37324e9c307e2a0263623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: 0
-  _items: []
+  _inventoryDrawer: {fileID: 0}
+  _size: 15
+  _items:
+  - {fileID: 1825801725219445810, guid: bc4cd76665e5c2d4bb442624050b39a5, type: 3}
+  - {fileID: -8897360251309456481, guid: 9c832f54b9399d648bbaae19ac85fe62, type: 3}
 --- !u!114 &1603520651519798159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,10 +453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc2ba366cae5264797569fd5389de54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _person: {fileID: 667817901085963524}
+  _person: {fileID: 4181467301861551645}
   _cam: {fileID: 2625730237560602162}
-  _invDrawer: {fileID: 0}
---- !u!114 &667817901085963524
+--- !u!114 &4181467301861551645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -462,7 +464,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5395209829260006007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fea91c4e3eb8a5458cbdd2cd6ef1358, type: 3}
+  m_Script: {fileID: 11500000, guid: d90b01e3b4f869b40ba5a2511382f93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _characterMove: {fileID: 2474714137732767906}

@@ -6,8 +6,11 @@ namespace Character.Inventory
 {
     public class Inventory : MonoBehaviour
     {
+        [SerializeField] private InventoryDrawer _inventoryDrawer;
         [SerializeField, Min(1)] private int _size;
         [SerializeField] private List<Item> _items = new();
+
+        public bool IsDisplayed { get; private set; }
 
         public void AddItem(Item item)
         {
@@ -22,5 +25,16 @@ namespace Character.Inventory
         public Item GetItem(int index) => _items[index];
 
         public int GetCount() => _items.Count;
+
+        public InventoryDrawer GetDrawer() => _inventoryDrawer;
+
+        public void SwitchDisplay()
+        {
+            IsDisplayed = !IsDisplayed;
+
+            Displaying(IsDisplayed);
+        }
+
+        public void Displaying(bool value) => _inventoryDrawer.SetActive(this, value);
     }
 }

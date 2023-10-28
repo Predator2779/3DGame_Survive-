@@ -12,47 +12,35 @@ namespace Character.Inventory
         [SerializeField] private RectTransform _content;
         [SerializeField] private Button _buttonPrefab;
 
-        private Person _person;
         private Inventory _inventory;
-        private UsageIcon _usage;
-        private bool _isDisplayed;
 
-        public void DisplayInventory(Person person) //// переделать передачу person и inventory
-        {
-            SwitchDisplay();
-            
-            _person = person;
-            _inventory = person.GetInventory();
-            _inventoryPanel.gameObject.SetActive(_isDisplayed);
-            
-            Draw();
-        }
-
-        private void Draw()
+        public void SetActive(Inventory inventory, bool value)
         {
             Clear();
-
-            if (_isDisplayed)
-            {
-                CreateItems(); return;
-            }
             
-            Nullify();
+            if (value) EnableDisplay(inventory);
+            else DisableDisplay();
         }
 
-        private bool SwitchDisplay()
-        {
-            if (_isDisplayed) _isDisplayed = false;
-            else _isDisplayed = true;
-
-            return _isDisplayed;
-        }
-
-        private void CreateItems()
+        public void DrawItems()
         {
             var length = _inventory.GetCount();
 
             for (int i = 0; i < length; i++) CreateIcon(_inventory.GetItem(i));
+        }
+
+        public void EnableDisplay(Inventory inventory)
+        {
+            _inventory = inventory;
+            _inventoryPanel.gameObject.SetActive(true);
+
+            DrawItems();
+        }
+
+        public void DisableDisplay()
+        {
+            _inventory = null;
+            _inventoryPanel.gameObject.SetActive(false);
         }
 
         private void CreateIcon(Item item)
@@ -64,10 +52,10 @@ namespace Character.Inventory
 
             button.transform.GetComponentInChildren<TMP_Text>().text = GetText(item);
 
-            _usage = button.gameObject.AddComponent<UsageIcon>();
-            _usage.SetItem(item);
+            var usage = button.gameObject.AddComponent<UsageIcon>();
+            usage.SetItem(item);
 
-            button.GetComponent<Button>().onClick.AddListener(Use);
+            button.GetComponent<Button>().onClick.AddListener(usage.ClickButton);
         }
 
         private string GetText(Item item)
@@ -80,26 +68,12 @@ namespace Character.Inventory
             return $"{item.ItemData.GetName()} {amountText}";
         }
 
-        private void Use()
-        {
-            _usage.Use(_person);
-            
-            Draw();
-        }
-
         private void Clear()
         {
             var length = _content.childCount;
 
             for (int i = 0; i < length; i++)
                 Destroy(_content.GetChild(i).gameObject);
-        }
-
-        private void Nullify()
-        {
-            _person = null;
-            _inventory = null;
-            _usage = null;
         }
     }
 }

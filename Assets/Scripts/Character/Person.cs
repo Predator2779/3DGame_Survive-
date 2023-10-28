@@ -15,7 +15,11 @@ namespace Character
         [SerializeField] private HealthProcessor _health;
         [SerializeField] private Inventory.Inventory _inventory;
 
-        private void OnValidate()
+        private void OnValidate() => SetNullableFields();
+
+        protected virtual void Start() => SetNullableFields();
+        
+        private void SetNullableFields()
         {
             _characterMove ??= GetComponent<CharacterMove>();
             _characterNeeds ??= GetComponent<CharacterNeeds>();
@@ -24,11 +28,11 @@ namespace Character
         }
 
         public CharacterMove GetCharacterMove() => _characterMove;
-        
+
         public CharacterNeeds GetCharacterNeeds() => _characterNeeds;
-        
+
         public HealthProcessor GetHealth() => _health;
-        
+
         public Inventory.Inventory GetInventory() => _inventory;
     }
 }

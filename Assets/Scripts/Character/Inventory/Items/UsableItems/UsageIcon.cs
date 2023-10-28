@@ -1,20 +1,24 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using EventHandler = General.EventHandler;
 
 namespace Character.Inventory.Items.UsableItems
 {
-    [Serializable]
     public class UsageIcon : MonoBehaviour
     {
-        [SerializeField] private Item _item;
-
+        private Item _item;
+        
         public void SetItem(Item item) => _item = item;
         
-        public void Use(Person person)
+        public void ClickButton()
         {
-            if (_item.ItemData.CanSelfUse()) _item.GetComponent<IUsable>().Use(person);
+            if (EventHandler.IsInventoryInteract)
+            {
+                EventHandler.OnGivingItem?.Invoke();
+                
+                return;
+            }
             
-            person.GetInventory().RemoveItem(_item);
-        } 
+            EventHandler.OnUsingItem?.Invoke(_item);
+        }
     }
 }

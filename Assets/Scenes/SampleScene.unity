@@ -1728,25 +1728,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 926943268134146120}
     - target: {fileID: 245484611511011042, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
-      propertyPath: _size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 245484611511011042, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
       propertyPath: _invDrawer
       value: 
       objectReference: {fileID: 62332038}
     - target: {fileID: 245484611511011042, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
-      propertyPath: _items.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 245484611511011042, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
-      propertyPath: _items.Array.data[0]
+      propertyPath: _inventoryDrawer
       value: 
-      objectReference: {fileID: 1825801725219445810, guid: bc4cd76665e5c2d4bb442624050b39a5, type: 3}
-    - target: {fileID: 245484611511011042, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
-      propertyPath: _items.Array.data[1]
-      value: 
-      objectReference: {fileID: -8897360251309456481, guid: 9c832f54b9399d648bbaae19ac85fe62, type: 3}
+      objectReference: {fileID: 62332038}
     - target: {fileID: 1603520651519798159, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
       propertyPath: _invDrawer
       value: 
