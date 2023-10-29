@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Character.Inventory
+namespace Character.ItemManagement.Inventory
 {
     public class InventoryDrawer : MonoBehaviour
     {
@@ -52,7 +52,7 @@ namespace Character.Inventory
 
             button.transform.GetComponentInChildren<TMP_Text>().text = GetText(item);
 
-            var usage = button.gameObject.AddComponent<UsageIcon>();
+            var usage = button.gameObject.GetComponent<UsageIcon>();
             usage.SetItem(item);
 
             button.GetComponent<Button>().onClick.AddListener(usage.ClickButton);

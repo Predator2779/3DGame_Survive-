@@ -2,12 +2,12 @@
 
 namespace Character.Inventory.Spawners
 {
-    [RequireComponent(typeof(Inventory))]
+    [RequireComponent(typeof(ItemManagement.Inventory.Inventory))]
     public class SpawnTrigger : ItemSpawner
     {
-        private Inventory _inventory;
+        private ItemManagement.Inventory.Inventory _inventory;
 
-        private void Start() => _inventory = GetComponent<Inventory>();
+        private void Start() => _inventory = GetComponent<ItemManagement.Inventory.Inventory>();
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))

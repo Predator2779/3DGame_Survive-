@@ -301,6 +301,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6060640342487648936, guid: bc4cd76665e5c2d4bb442624050b39a5, type: 3}
   m_PrefabInstance: {fileID: 176173983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &427389911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6727141541679685186, guid: 00a542a018384d84e9e6e24d0d7e739d, type: 3}
+  m_PrefabInstance: {fileID: 492574060396456633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &436664690
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +546,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3503873140993815489, guid: 00a542a018384d84e9e6e24d0d7e739d, type: 3}
   m_PrefabInstance: {fileID: 492574060396456633}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &840208090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427389911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea20358da3371842839fb7b424d696a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventory: {fileID: 0}
 --- !u!20 &963194227 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2625730237560602162, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
@@ -990,6 +1008,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6060640342487648936, guid: bc4cd76665e5c2d4bb442624050b39a5, type: 3}
   m_PrefabInstance: {fileID: 5387177609628762846}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1571904094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7170534952092189330, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+  m_PrefabInstance: {fileID: 7582833126983327422}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1634345634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,6 +1300,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1251971845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1880907775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 431782377842502990, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+  m_PrefabInstance: {fileID: 7582833126983327422}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1906921372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1641,10 @@ PrefabInstance:
       propertyPath: _invDrawer
       value: 
       objectReference: {fileID: 62332038}
+    - target: {fileID: 4390693563017999373, guid: 00a542a018384d84e9e6e24d0d7e739d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6727141541679685186, guid: 00a542a018384d84e9e6e24d0d7e739d, type: 3}
       propertyPath: m_Name
       value: Vaporizer
@@ -1608,7 +1652,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6727141541679685186, guid: 00a542a018384d84e9e6e24d0d7e739d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 840208090}
   m_SourcePrefab: {fileID: 100100000, guid: 00a542a018384d84e9e6e24d0d7e739d, type: 3}
 --- !u!114 &926943268134146120 stripped
 MonoBehaviour:
@@ -1862,6 +1909,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicMachine
       objectReference: {fileID: 0}
+    - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1940,6 +1991,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2795229530464562839, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_VerticalScrollbar
+      value: 
+      objectReference: {fileID: 1571904094}
     - target: {fileID: 3600242101903778514, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2052,6 +2107,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7923264466238012045, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_VerticalScrollbar
+      value: 
+      objectReference: {fileID: 1880907775}
     - target: {fileID: 8109542624382310608, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2064,6 +2123,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 9109917430449462229, guid: 4598e1727c804214286da5a26a0f0cff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

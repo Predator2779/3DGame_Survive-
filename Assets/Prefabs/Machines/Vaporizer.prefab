@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 2465153873981041183}
   - component: {fileID: 1589786919509585272}
   - component: {fileID: 3509790935394344409}
+  - component: {fileID: 4390693563017999373}
   m_Layer: 0
   m_Name: Vaporizer
   m_TagString: Untagged
@@ -478,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db8c0b9f4e37324e9c307e2a0263623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _invDrawer: {fileID: 0}
+  _inventoryDrawer: {fileID: 0}
   _size: 10
   _items:
   - {fileID: 1825801725219445810, guid: bc4cd76665e5c2d4bb442624050b39a5, type: 3}
@@ -489,6 +490,27 @@ MonoBehaviour:
   - {fileID: 1825801725219445810, guid: bc4cd76665e5c2d4bb442624050b39a5, type: 3}
   - {fileID: 1825801725219445810, guid: bc4cd76665e5c2d4bb442624050b39a5, type: 3}
   - {fileID: 1825801725219445810, guid: bc4cd76665e5c2d4bb442624050b39a5, type: 3}
+--- !u!135 &4390693563017999373
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6727141541679685186}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!1 &7857421752807389016
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using Character.Inventory.Items;
 using UnityEngine;
 
-namespace Character.Inventory
+namespace Character.ItemManagement.Inventory
 {
     public class Inventory : MonoBehaviour
     {
@@ -43,6 +42,11 @@ namespace Character.Inventory
             Displaying(IsDisplayed);
         }
 
-        public void Displaying(bool value) => _inventoryDrawer.SetActive(this, value);
+        public void Displaying(bool value)
+        {
+            _inventoryDrawer.SetActive(this, value);
+            
+            IsDisplayed = value;
+        }
     }
 }

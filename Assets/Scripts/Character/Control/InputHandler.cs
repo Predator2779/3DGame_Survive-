@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using EventHandler = General.EventHandler;
 
 namespace Character.Control
 {
@@ -11,7 +10,10 @@ namespace Character.Control
         
         private RaycastHit _hit;
 
-        private void Start() => _person ??= GetComponent<Person>();
+        private void Start()
+        {
+            _person ??= GetComponent<Person>();
+        }
 
         private void Update()
         {

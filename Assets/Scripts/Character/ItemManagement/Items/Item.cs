@@ -15,7 +15,7 @@ namespace Character.Inventory.Items
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.transform.CompareTag("Player") &&
-                collision.transform.TryGetComponent(out Inventory inventory))
+                collision.transform.TryGetComponent(out ItemManagement.Inventory.Inventory inventory))
             {
                 inventory.AddItem(this);
                 gameObject.SetActive(false);
