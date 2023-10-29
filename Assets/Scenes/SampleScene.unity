@@ -1815,6 +1815,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4181467301861551645, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
+      propertyPath: _respawnPoint
+      value: 
+      objectReference: {fileID: 436664691}
     - target: {fileID: 5510163581596124744, guid: f21f2708093408a48af141e1cca9cccc, type: 3}
       propertyPath: _healthBar
       value: 

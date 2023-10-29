@@ -1,6 +1,9 @@
-public interface IHealth
+namespace Character.Health
 {
-    public void TakeDamage(float damage);
+    public interface IHealth
+    {
+        public void TakeDamage(float damage);
 
-    public void TakeHeal(float heal);
+        public void TakeHeal(float heal);
+    }
 }

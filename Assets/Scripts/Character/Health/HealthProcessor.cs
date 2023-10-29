@@ -1,76 +1,80 @@
-using Character.Health;
-using General;
 using UnityEngine;
 
-public class HealthProcessor : MonoBehaviour, IHealth
+namespace Character.Health
 {
-    [Header("HealthBar")]
-    [SerializeField] private Indicator _healthBar;
-
-    [Header("Parameters")]
-    [SerializeField] private float _maxHitPoints;
-
-    [SerializeField] private float _currentHitPoints;
-    [SerializeField] [Min(1)] private float _coefDefense;
-
-    [Header("Death")]
-    [SerializeField] private Transform _respawnPoint;
-
-    private Health _health;
-
-    private void Start() => Initialize();
-
-    private void Initialize()
+    [RequireComponent(typeof(Person))]
+    public class HealthProcessor : MonoBehaviour, IHealth
     {
-        _health = new Health(_maxHitPoints, _coefDefense);
+        [Header("HealthBar")]
+        [SerializeField] private Indicator _healthBar;
 
-        DisplayHealthBar();
-    }
+        [Header("Parameters")]
+        [SerializeField] private float _maxHitPoints;
+        [SerializeField] private float _currentHitPoints;
+        [SerializeField] [Min(1)] private float _coefDefense;
 
-    public void TakeDamage(float damage)
-    {
-        _health.TakeDamage(damage);
+        private Person _person;
+        private Health _health;
 
-        DisplayHealthBar();
-        CheckDeath();
-    }
+        private void Start() => Initialize();
 
-    public void TakeHeavyDamage(float damage)
-    {
-        _health.TakeHeavyDamage(damage);
+        private void Initialize()
+        {
+            _person = GetComponent<Person>();
+            _health = new Health(_maxHitPoints, _coefDefense);
 
-        DisplayHealthBar();
-        CheckDeath();
-    }
+            DisplayHealthBar();
+        }
 
-    public void TakeHeal(float heal)
-    {
-        if (!CanHealing()) return;
+        public void TakeDamage(float damage)
+        {
+            _health.TakeDamage(damage);
 
-        _health.TakeHeal(heal);
+            DisplayHealthBar();
+            CheckDeath();
+        }
 
-        DisplayHealthBar();
-    }
+        public void TakeHeavyDamage(float damage)
+        {
+            _health.TakeHeavyDamage(damage);
 
-    public void DisplayHealthBar()
-    {
-        _currentHitPoints = _health.HitPoints;
+            DisplayHealthBar();
+            CheckDeath();
+        }
 
-        if (_healthBar != null)
-            _healthBar.SetCurrentValue(_currentHitPoints * 100 / _maxHitPoints);
-    }
+        public void TakeHeal(float heal)
+        {
+            if (!CanHealing()) return;
 
-    private bool CanHealing() => _currentHitPoints < _maxHitPoints;
+            _health.TakeHeal(heal);
 
-    private void CheckDeath()
-    {
-        if (_currentHitPoints <= 0) Death();
-    }
-
-    private void Death()
-    {
-        new Transition().MoveObject(gameObject, _respawnPoint.position);
+            DisplayHealthBar();
+        }     
         
-        TakeHeal(_maxHitPoints);
+        public void TakeHealCompletely()
+        {
+            if (!CanHealing()) return;
+
+            _health.TakeHeal(_maxHitPoints);
+
+            DisplayHealthBar();
+        }
+
+        public void DisplayHealthBar()
+        {
+            _currentHitPoints = _health.HitPoints;
+
+            if (_healthBar != null)
+                _healthBar.SetCurrentValue(_currentHitPoints * 100 / _maxHitPoints);
+        }
+
+        private bool CanHealing() => _currentHitPoints < _maxHitPoints;
+
+        private void CheckDeath()
+        {
+            if (_currentHitPoints <= 0) Death();
+        }
+
+        private void Death() => _person.Death();
     }
 }

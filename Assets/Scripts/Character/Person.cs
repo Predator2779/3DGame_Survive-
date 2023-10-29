@@ -1,5 +1,6 @@
 ﻿using Character.Control;
 using Character.Health;
+using General;
 using UnityEngine;
 
 namespace Character
@@ -8,13 +9,13 @@ namespace Character
     [RequireComponent(typeof(CharacterNeeds))]
     [RequireComponent(typeof(HealthProcessor))]
     [RequireComponent(typeof(ItemManagement.InventoryManagement.Inventory))]
-    public class Person : MonoBehaviour
+    public abstract class Person : MonoBehaviour
     {
         [SerializeField] private CharacterMove _characterMove;
         [SerializeField] private CharacterNeeds _characterNeeds;
         [SerializeField] private HealthProcessor _health;
         [SerializeField] private ItemManagement.InventoryManagement.Inventory _inventory;
-
+        
         private void OnValidate() => SetNullableFields();
 
         protected virtual void Start() => SetNullableFields();
@@ -34,5 +35,7 @@ namespace Character
         public HealthProcessor GetHealth() => _health;
 
         public ItemManagement.InventoryManagement.Inventory GetInventory() => _inventory;
+
+        public abstract void Death();
     }
 }
