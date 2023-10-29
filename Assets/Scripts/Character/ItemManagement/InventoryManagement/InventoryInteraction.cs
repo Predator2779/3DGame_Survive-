@@ -6,8 +6,7 @@ namespace Character.ItemManagement.InventoryManagement
     [RequireComponent(typeof(Inventory))]
     public class InventoryInteraction : MonoBehaviour
     {
-        [SerializeField] private Inventory _mainInventory;
-
+        private Inventory _mainInventory;
         private Inventory _supportiveInventory;
         private InventoryBinder _invBinder;
 
@@ -17,14 +16,22 @@ namespace Character.ItemManagement.InventoryManagement
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out _supportiveInventory))
+            if (other.TryGetComponent(out Inventory inventory))
+            {
+                _supportiveInventory = inventory;
+
                 DisplayEnable();
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out _supportiveInventory))
+            if (other.TryGetComponent(out Inventory _))
+            {
                 DisplayDisable();
+
+                _supportiveInventory = null;
+            }
         }
 
         private void DisplayEnable()
@@ -47,7 +54,7 @@ namespace Character.ItemManagement.InventoryManagement
             _invBinder.Deinitialize();
             _invBinder = null;
 
-            EventHandler.OnInventoryButtonUp.RemoveListener(CheckDisplay);
+            EventHandler.OnInventoryButtonUp?.RemoveListener(CheckDisplay);
         }
     }
 }

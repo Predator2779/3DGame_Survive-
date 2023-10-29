@@ -16,8 +16,7 @@ namespace Character.ItemManagement.InventoryManagement
 
         private void Start() => SetDrawer();
         
-        private void SetDrawer() => _inventoryDrawer ??= GameObject.Find("SupportiveWindow")
-                                                                      .GetComponent<InventoryDrawer>();
+        private void SetDrawer() => _inventoryDrawer ??= GameObject.Find("SupportiveWindow").GetComponent<InventoryDrawer>();
 
         public void AddItem(Item item)
         {

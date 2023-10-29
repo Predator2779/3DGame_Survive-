@@ -8,8 +8,8 @@ namespace General
     {
         public static bool IsInventoryInteract { get; set; }
 
-        public static UnityEvent OnInventoryButtonUp = new();
-        public static UnityEvent<Item, Inventory> OnUsingItem = new();
-        public static UnityEvent<Item, Inventory> OnGivingItem = new();
+        public static readonly UnityEvent OnInventoryButtonUp = new();
+        public static readonly UnityEvent<Item, Inventory> OnUsingItem = new();
+        public static readonly UnityEvent<Item, Inventory> OnGivingItem = new();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace General
 {
-    public class Transition : MonoBehaviour
+    public class Transition
     {
         public void MoveObjects(GameObject[] objs, Vector3 position)
         {

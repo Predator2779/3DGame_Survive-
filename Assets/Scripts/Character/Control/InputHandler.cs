@@ -36,13 +36,13 @@ namespace Character.Control
         private void DisplayInventory()
         {
             _person.GetInventory().SwitchDisplay();
-            
+
             EventHandler.OnInventoryButtonUp?.Invoke();
         }
 
         private void MoveCharacter()
         {
-            if (!_person.GetInventory().IsDisplayed) 
+            if (!_person.GetInventory().IsDisplayed)
                 _person.GetCharacterMove().Move(_hit.point);
         }
     }

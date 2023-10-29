@@ -1,5 +1,6 @@
 ﻿using Character.ItemManagement.Items;
 using General;
+using UnityEngine;
 
 namespace Character.ItemManagement.InventoryManagement
 {
@@ -12,7 +13,7 @@ namespace Character.ItemManagement.InventoryManagement
 
             Initialize();
         }
-
+        
         private readonly Inventory _mainInventory;
         private readonly Inventory _supportiveInventory;
 
