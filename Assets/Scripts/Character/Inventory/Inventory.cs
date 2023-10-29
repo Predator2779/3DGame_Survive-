@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Character.Inventory.Items;
 using UnityEngine;
@@ -11,6 +12,13 @@ namespace Character.Inventory
         [SerializeField] private List<Item> _items = new();
 
         public bool IsDisplayed { get; private set; }
+
+        private void OnValidate() => SetDrawer();
+
+        private void Start() => SetDrawer();
+        
+        private void SetDrawer() => _inventoryDrawer ??= GameObject.Find("SupportiveWindow")
+                                                                      .GetComponent<InventoryDrawer>();
 
         public void AddItem(Item item)
         {
