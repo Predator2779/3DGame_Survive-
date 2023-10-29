@@ -1,5 +1,5 @@
-﻿using Character.Inventory.Items;
-using Character.Inventory.Items.UsableItems;
+﻿using Character.ItemManagement.Items;
+using Character.ItemManagement.Items.UsableItems;
 using General;
 
 namespace Character
@@ -9,18 +9,17 @@ namespace Character
         protected override void Start()
         {
             base.Start();
-            
+
             EventHandler.OnUsingItem.AddListener(UseItem);
         }
 
-        private void UseItem(Item item)
+        private void UseItem(Item item, ItemManagement.InventoryManagement.Inventory inventory)
         {
+            if (!item.Data.CanSelfUse() || inventory != GetInventory()) return;
+            
             item.GetComponent<IUsable>().Use(this); // Try?
-            
-            var inventory = GetInventory();
-            
-            inventory.RemoveItem(item); // чей инвентарь используется во время исп предмета?
-            inventory.GetDrawer().DrawItems();
+            inventory.RemoveItem(item);
+            inventory.RefreshDisplay();
         }
     }
 }

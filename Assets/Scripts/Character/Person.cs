@@ -7,13 +7,13 @@ namespace Character
     [RequireComponent(typeof(CharacterMove))]
     [RequireComponent(typeof(CharacterNeeds))]
     [RequireComponent(typeof(HealthProcessor))]
-    [RequireComponent(typeof(ItemManagement.Inventory.Inventory))]
+    [RequireComponent(typeof(ItemManagement.InventoryManagement.Inventory))]
     public class Person : MonoBehaviour
     {
         [SerializeField] private CharacterMove _characterMove;
         [SerializeField] private CharacterNeeds _characterNeeds;
         [SerializeField] private HealthProcessor _health;
-        [SerializeField] private ItemManagement.Inventory.Inventory _inventory;
+        [SerializeField] private ItemManagement.InventoryManagement.Inventory _inventory;
 
         private void OnValidate() => SetNullableFields();
 
@@ -24,7 +24,7 @@ namespace Character
             _characterMove ??= GetComponent<CharacterMove>();
             _characterNeeds ??= GetComponent<CharacterNeeds>();
             _health ??= GetComponent<HealthProcessor>();
-            _inventory ??= GetComponent<ItemManagement.Inventory.Inventory>();
+            _inventory ??= GetComponent<ItemManagement.InventoryManagement.Inventory>();
         }
 
         public CharacterMove GetCharacterMove() => _characterMove;
@@ -33,6 +33,6 @@ namespace Character
 
         public HealthProcessor GetHealth() => _health;
 
-        public ItemManagement.Inventory.Inventory GetInventory() => _inventory;
+        public ItemManagement.InventoryManagement.Inventory GetInventory() => _inventory;
     }
 }

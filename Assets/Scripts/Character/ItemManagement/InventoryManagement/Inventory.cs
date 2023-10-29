@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Character.Inventory.Items;
+using Character.ItemManagement.Items;
 using UnityEngine;
 
-namespace Character.ItemManagement.Inventory
+namespace Character.ItemManagement.InventoryManagement
 {
     public class Inventory : MonoBehaviour
     {
@@ -32,8 +32,14 @@ namespace Character.ItemManagement.Inventory
         public Item GetItem(int index) => _items[index];
 
         public int GetCount() => _items.Count;
+        
+        public void RefreshDisplay()
+        {
+            if (!IsDisplayed) return;
 
-        public InventoryDrawer GetDrawer() => _inventoryDrawer;
+            _inventoryDrawer.Clear();
+            _inventoryDrawer.DrawItems();
+        }
 
         public void SwitchDisplay()
         {

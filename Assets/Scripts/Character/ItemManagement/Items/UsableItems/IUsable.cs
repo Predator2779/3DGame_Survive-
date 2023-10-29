@@ -1,4 +1,4 @@
-﻿namespace Character.Inventory.Items.UsableItems
+﻿namespace Character.ItemManagement.Items.UsableItems
 {
     public interface IUsable
     {

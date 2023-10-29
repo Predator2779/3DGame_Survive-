@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
-namespace Character.Inventory.Factory
+namespace Character.ItemManagement.Factory
 {
-    [RequireComponent(typeof(ItemManagement.Inventory.Inventory))]
+    [RequireComponent(typeof(ItemManagement.InventoryManagement.Inventory))]
     public class MachineTool : MonoBehaviour
     {
-        private ItemManagement.Inventory.Inventory _inventory;
+        private ItemManagement.InventoryManagement.Inventory _inventory;
 
-        protected virtual void Start() => _inventory = GetComponent<ItemManagement.Inventory.Inventory>();
+        protected virtual void Start() => _inventory = GetComponent<ItemManagement.InventoryManagement.Inventory>();
 
-        public ItemManagement.Inventory.Inventory GetInventory() => _inventory;
+        public ItemManagement.InventoryManagement.Inventory GetInventory() => _inventory;
     }
 }

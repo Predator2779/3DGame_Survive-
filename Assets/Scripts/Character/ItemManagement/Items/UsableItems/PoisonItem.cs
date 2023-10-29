@@ -1,10 +1,10 @@
-﻿namespace Character.Inventory.Items.UsableItems
+﻿namespace Character.ItemManagement.Items.UsableItems
 {
     public class PoisonItem : UsableItem
     {
         public override void Use(Person person)
         {
-            person.GetHealth().TakeDamage(-ItemData.GetAmount());
+            person.GetHealth().TakeDamage(-Data.GetAmount());
         }
     }
 }

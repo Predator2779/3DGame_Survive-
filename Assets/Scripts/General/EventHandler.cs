@@ -1,4 +1,5 @@
-﻿using Character.Inventory.Items;
+﻿using Character.ItemManagement.InventoryManagement;
+using Character.ItemManagement.Items;
 using UnityEngine.Events;
 
 namespace General
@@ -7,7 +8,7 @@ namespace General
     {
         public static bool IsInventoryInteract { get; set; }
 
-        public static UnityEvent<Item> OnUsingItem = new();
-        public static UnityEvent OnGivingItem = new();
+        public static UnityEvent<Item, Inventory> OnUsingItem = new();
+        public static UnityEvent<Item, Inventory> OnGivingItem = new();
     }
 }

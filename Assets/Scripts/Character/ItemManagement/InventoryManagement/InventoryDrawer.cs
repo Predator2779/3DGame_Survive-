@@ -1,10 +1,10 @@
-using Character.Inventory.Items;
-using Character.Inventory.Items.UsableItems;
+using Character.ItemManagement.Items;
+using Character.ItemManagement.Items.UsableItems;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Character.ItemManagement.Inventory
+namespace Character.ItemManagement.InventoryManagement
 {
     public class InventoryDrawer : MonoBehaviour
     {
@@ -29,7 +29,7 @@ namespace Character.ItemManagement.Inventory
             for (int i = 0; i < length; i++) CreateIcon(_inventory.GetItem(i));
         }
 
-        public void EnableDisplay(Inventory inventory)
+        public void EnableDisplay(InventoryManagement.Inventory inventory)
         {
             _inventory = inventory;
             _inventoryPanel.gameObject.SetActive(true);
@@ -48,27 +48,26 @@ namespace Character.ItemManagement.Inventory
             var button = Instantiate(_buttonPrefab, _content);
 
             button.name = "Icon";
-            button.image.sprite = item.ItemData.GetIcon();
+            button.image.sprite = item.Data.GetIcon();
+            
+            var usage = button.gameObject.AddComponent<UsageIcon>();
+            usage.InitializeIcon(item, _inventory);
 
             button.transform.GetComponentInChildren<TMP_Text>().text = GetText(item);
-
-            var usage = button.gameObject.GetComponent<UsageIcon>();
-            usage.SetItem(item);
-
             button.GetComponent<Button>().onClick.AddListener(usage.ClickButton);
         }
 
         private string GetText(Item item)
         {
-            float amount = item.ItemData.GetAmount();
+            float amount = item.Data.GetAmount();
             string amountText = $"{amount}";
 
             if (amount >= 0) amountText = $"+{amount}";
 
-            return $"{item.ItemData.GetName()} {amountText}";
+            return $"{item.Data.GetName()} {amountText}";
         }
 
-        private void Clear()
+        public void Clear()
         {
             var length = _content.childCount;
 

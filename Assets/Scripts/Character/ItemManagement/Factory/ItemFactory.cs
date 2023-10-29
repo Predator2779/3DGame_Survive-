@@ -1,9 +1,9 @@
-﻿using Character.Inventory.Items;
-using Character.Inventory.Spawners;
+﻿using Character.ItemManagement.Items;
+using Character.ItemManagement.Spawners;
 using Other;
 using UnityEngine;
 
-namespace Character.Inventory.Factory
+namespace Character.ItemManagement.Factory
 {
     [RequireComponent(typeof(ItemSpawner))]
     public class ItemFactory : MachineTool
@@ -30,13 +30,15 @@ namespace Character.Inventory.Factory
             if (length != 0 &&
                 _timer != null &&
                 _timer.IsTimesUp())
-                SpawnAndRemove(GetInventory().GetItem(0));
+                SpawnItem(GetInventory().GetItem(0));
         }
 
-        protected virtual void SpawnAndRemove(Item item)
+        protected virtual void SpawnItem(Item item)
         {
             Spawn(item);
             Remove(item);
+            
+            GetInventory().RefreshDisplay();
         }
 
         protected void Spawn(Item item) => _spawner.SpawnItem(item);

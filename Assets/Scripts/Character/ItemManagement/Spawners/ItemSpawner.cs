@@ -1,7 +1,7 @@
-﻿using Character.Inventory.Items;
+﻿using Character.ItemManagement.Items;
 using UnityEngine;
 
-namespace Character.Inventory.Spawners
+namespace Character.ItemManagement.Spawners
 {
     public class ItemSpawner : MonoBehaviour
     {
@@ -14,7 +14,7 @@ namespace Character.Inventory.Spawners
 
         public void SpawnItem(Item item)
         {
-            var data = item.ItemData;
+            var data = item.Data;
             
             var clone = Instantiate
             (
@@ -30,7 +30,7 @@ namespace Character.Inventory.Spawners
             ).transform;
 
             clone.transform.SetParent(_parent);
-            clone.GetComponent<Item>().ItemData = data;
+            clone.GetComponent<Item>().Data = data;
         }
     }
 }

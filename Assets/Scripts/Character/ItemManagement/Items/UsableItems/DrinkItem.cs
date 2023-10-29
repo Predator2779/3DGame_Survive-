@@ -1,10 +1,10 @@
-﻿namespace Character.Inventory.Items.UsableItems
+﻿namespace Character.ItemManagement.Items.UsableItems
 {
     public class DrinkItem : UsableItem
     {
         public override void Use(Person person)
         {
-            person.GetCharacterNeeds().AddWater(ItemData.GetAmount());
+            person.GetCharacterNeeds().AddWater(Data.GetAmount());
         }
     }
 }

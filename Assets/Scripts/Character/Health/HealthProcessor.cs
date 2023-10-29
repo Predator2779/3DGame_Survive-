@@ -1,3 +1,4 @@
+using Character.Health;
 using General;
 using UnityEngine;
 
@@ -63,6 +64,13 @@ public class HealthProcessor : MonoBehaviour, IHealth
 
     private void CheckDeath()
     {
-        if (_currentHitPoints <= 0) new Transition().MoveObject(gameObject, _respawnPoint.position);
+        if (_currentHitPoints <= 0) Death();
+    }
+
+    private void Death()
+    {
+        new Transition().MoveObject(gameObject, _respawnPoint.position);
+        
+        TakeHeal(_maxHitPoints);
     }
 }

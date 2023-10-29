@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 1589786919509585272}
   - component: {fileID: 3509790935394344409}
   - component: {fileID: 4390693563017999373}
+  - component: {fileID: 1906376056527510041}
   m_Layer: 0
   m_Name: Vaporizer
   m_TagString: Untagged
@@ -511,6 +512,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0.35, z: 0}
+--- !u!114 &1906376056527510041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6727141541679685186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea20358da3371842839fb7b424d696a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainInventory: {fileID: 3509790935394344409}
 --- !u!1 &7857421752807389016
 GameObject:
   m_ObjectHideFlags: 0
