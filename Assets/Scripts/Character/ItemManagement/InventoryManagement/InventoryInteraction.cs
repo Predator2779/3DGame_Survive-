@@ -13,8 +13,6 @@ namespace Character.ItemManagement.InventoryManagement
         private void OnValidate() => _mainInventory ??= GetComponent<Inventory>();
 
         private void Start() => _mainInventory ??= GetComponent<Inventory>();
-
-        public void SetInteractableItems(bool value) => _invBinder.SetInteractableItems(value);
         
         private void OnTriggerEnter(Collider other)
         {

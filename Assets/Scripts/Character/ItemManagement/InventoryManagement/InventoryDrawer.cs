@@ -55,14 +55,6 @@ namespace Character.ItemManagement.InventoryManagement
             button.transform.GetComponentInChildren<TMP_Text>().text = GetText(item);
             button.GetComponent<Button>().onClick.AddListener(usage.ClickButton);
         }
-
-        public void SetInteractableItems(bool value)
-        {
-            int childCount = _content.childCount;
-            
-            for (int i = 0; i < childCount; i++)
-                _content.GetChild(i).GetComponent<Button>().interactable = value;
-        }
         
         private string GetText(Item item)
         {

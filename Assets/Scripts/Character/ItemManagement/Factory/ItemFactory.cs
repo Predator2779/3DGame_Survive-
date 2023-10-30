@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using Character.ItemManagement.InventoryManagement;
+﻿using Character.ItemManagement.InventoryManagement;
 using Character.ItemManagement.Items;
 using Character.ItemManagement.Spawners;
-using General;
 using Other;
 using UnityEngine;
 
@@ -15,9 +13,7 @@ namespace Character.ItemManagement.Factory
     {
         [SerializeField] protected Inventory _inventory;
         [SerializeField] private ItemSpawner _spawner;
-        [SerializeField] private InventoryInteraction _inventoryInteraction;
         [SerializeField] private float _spawnDelay;
-        [SerializeField] private float _protectionDelay;
 
         private Timer _timer;
 
@@ -33,7 +29,6 @@ namespace Character.ItemManagement.Factory
         {
             _inventory ??= GetComponent<Inventory>();
             _spawner ??= GetComponent<ItemSpawner>();
-            _inventoryInteraction ??= GetComponent<InventoryInteraction>();
         }
 
         private void Update() => SpawnFromInventory();
@@ -49,20 +44,8 @@ namespace Character.ItemManagement.Factory
         private void CheckInteract(Item item)
         {
             _timer = null;
-
-            if (EventHandler.IsInventoryInteract)
-                StartCoroutine(DelayedSpawn(item, _protectionDelay));
-            else SpawnItem(item);
-        }
-
-        private IEnumerator DelayedSpawn(Item item, float delay)
-        {
-            SetInteractableItems(false);
-
-            yield return new WaitForSeconds(delay);
-
+            
             SpawnItem(item);
-            SetInteractableItems(true);
         }
 
         protected virtual void SpawnItem(Item item)
@@ -71,8 +54,6 @@ namespace Character.ItemManagement.Factory
             Remove(item);
             StartTimer();
         }
-
-        private void SetInteractableItems(bool value) => _inventoryInteraction.SetInteractableItems(value);
 
         protected void StartTimer() => _timer = new Timer(_spawnDelay, false);
 

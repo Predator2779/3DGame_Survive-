@@ -26,12 +26,6 @@ namespace Character.ItemManagement.InventoryManagement
             EventHandler.IsInventoryInteract = displayActive;
         }
 
-        public void SetInteractableItems(bool value)
-        {
-            _mainInventory.GetDrawer().SetInteractableItems(value);
-            _supportiveInventory.GetDrawer().SetInteractableItems(value);
-        }
-
         private void GiveItem(Item item, Inventory inventory)
         {
             if (inventory == _mainInventory)
