@@ -9,7 +9,7 @@ namespace Character.ItemManagement.Factory
     [RequireComponent(typeof(Inventory))]
     [RequireComponent(typeof(ItemSpawner))]
     [RequireComponent(typeof(InventoryInteraction))]
-    public class ItemFactory : MonoBehaviour
+    public class MachineTool : MonoBehaviour
     {
         [SerializeField] protected Inventory _inventory;
         [SerializeField] private ItemSpawner _spawner;
@@ -31,24 +31,24 @@ namespace Character.ItemManagement.Factory
             _spawner ??= GetComponent<ItemSpawner>();
         }
 
-        private void Update() => SpawnFromInventory();
+        private void Update() => CreateAllFromInventory(_inventory);
 
-        private void SpawnFromInventory()
+        private void CreateAllFromInventory(Inventory inventory)
         {
-            if (_inventory.GetCount() != 0 &&
+            if (inventory.GetCount() != 0 &&
                 _timer != null &&
                 _timer.IsTimesUp())
-                CheckInteract(_inventory.GetItem(0));
+                CheckInteract(inventory.GetItem(0));
         }
 
         private void CheckInteract(Item item)
         {
             _timer = null;
             
-            SpawnItem(item);
+            CreateItem(item);
         }
 
-        protected virtual void SpawnItem(Item item)
+        protected virtual void CreateItem(Item item)
         {
             Spawn(item);
             Remove(item);

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Character.ItemManagement.Factory
 {
     [RequireComponent(typeof(ItemConverter))]
-    public class ConvertFactory : ItemFactory
+    public class ConvertMachine : MachineTool
     {
         private ItemConverter _itemConverter;
 
@@ -15,7 +15,7 @@ namespace Character.ItemManagement.Factory
             _itemConverter ??= GetComponent<ItemConverter>();
         }
 
-        protected override void SpawnItem(Item item)
+        protected override void CreateItem(Item item)
         {
             Spawn(_itemConverter.ConvertItem(item));
             Remove(item);
