@@ -14,24 +14,22 @@ namespace Character.ItemManagement.InventoryManagement
 
         private void Start() => _mainInventory ??= GetComponent<Inventory>();
 
+        public void SetInteractableItems(bool value) => _invBinder.SetInteractableItems(value);
+        
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Inventory inventory))
-            {
-                _supportiveInventory = inventory;
-
-                DisplayEnable();
-            }
+            if (!other.TryGetComponent(out Inventory inventory)) return;
+            
+            _supportiveInventory = inventory;
+            DisplayEnable();
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out Inventory _))
-            {
-                DisplayDisable();
-
-                _supportiveInventory = null;
-            }
+            if (!other.TryGetComponent(out Inventory _)) return;
+            
+            DisplayDisable();
+            _supportiveInventory = null;
         }
 
         private void DisplayEnable()

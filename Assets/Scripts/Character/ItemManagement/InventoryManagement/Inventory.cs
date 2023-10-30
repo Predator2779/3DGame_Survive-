@@ -40,13 +40,15 @@ namespace Character.ItemManagement.InventoryManagement
             _inventoryDrawer.DrawItems();
         }
 
+        public InventoryDrawer GetDrawer() => _inventoryDrawer;
+        
         public void SwitchDisplay()
         {
             IsDisplayed = !IsDisplayed;
-
+        
             Displaying(IsDisplayed);
         }
-
+        
         public void Displaying(bool value)
         {
             _inventoryDrawer.SetActive(this, value);

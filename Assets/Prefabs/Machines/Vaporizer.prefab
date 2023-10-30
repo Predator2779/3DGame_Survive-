@@ -398,12 +398,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3503873140993815489}
-  - component: {fileID: 3706815621522488393}
+  - component: {fileID: 1906376056527510041}
   - component: {fileID: 2465153873981041183}
   - component: {fileID: 1589786919509585272}
+  - component: {fileID: 3706815621522488393}
   - component: {fileID: 3509790935394344409}
   - component: {fileID: 4390693563017999373}
-  - component: {fileID: 1906376056527510041}
   m_Layer: 0
   m_Name: Vaporizer
   m_TagString: Untagged
@@ -428,7 +428,7 @@ Transform:
   - {fileID: 3827847656401741330}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -34.053, z: 0}
---- !u!114 &3706815621522488393
+--- !u!114 &1906376056527510041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -437,10 +437,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6727141541679685186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6731bb18a4801248afa7f6c56294c2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ea20358da3371842839fb7b424d696a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnDelay: 5
 --- !u!114 &2465153873981041183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +467,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPosition: {fileID: 6252686972040175800}
+--- !u!114 &3706815621522488393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6727141541679685186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6731bb18a4801248afa7f6c56294c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventory: {fileID: 3509790935394344409}
+  _spawner: {fileID: 1589786919509585272}
+  _spawnDelay: 2
+  _delayProtect: 0.2
 --- !u!114 &3509790935394344409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,25 +521,12 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0.35, z: 0}
---- !u!114 &1906376056527510041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6727141541679685186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea20358da3371842839fb7b424d696a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mainInventory: {fileID: 3509790935394344409}
 --- !u!1 &7857421752807389016
 GameObject:
   m_ObjectHideFlags: 0

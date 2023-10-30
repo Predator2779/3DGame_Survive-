@@ -1,22 +1,20 @@
-﻿using Character.ItemManagement.Spawners;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Character.Inventory.Spawners
+namespace Character.ItemManagement.Spawners
 {
-    [RequireComponent(typeof(ItemManagement.InventoryManagement.Inventory))]
+    [RequireComponent(typeof(InventoryManagement.Inventory))]
     public class SpawnTrigger : ItemSpawner
     {
-        private ItemManagement.InventoryManagement.Inventory _inventory;
+        private InventoryManagement.Inventory _inventory;
 
-        private void Start() => _inventory = GetComponent<ItemManagement.InventoryManagement.Inventory>();
+        private void Start() => _inventory = GetComponent<InventoryManagement.Inventory>();
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
                 var item = _inventory.GetItem(0);
                 
-                SpawnItem(item);
-                
+                Spawn(item);
                 _inventory.RemoveItem(item);
             }
         }

@@ -29,7 +29,7 @@ namespace Character.ItemManagement.InventoryManagement
             for (int i = 0; i < length; i++) CreateIcon(_inventory.GetItem(i));
         }
 
-        public void EnableDisplay(InventoryManagement.Inventory inventory)
+        public void EnableDisplay(Inventory inventory)
         {
             _inventory = inventory;
             _inventoryPanel.gameObject.SetActive(true);
@@ -46,7 +46,6 @@ namespace Character.ItemManagement.InventoryManagement
         private void CreateIcon(Item item)
         {
             var button = Instantiate(_buttonPrefab, _content);
-
             button.name = "Icon";
             button.image.sprite = item.Data.GetIcon();
             
@@ -57,6 +56,14 @@ namespace Character.ItemManagement.InventoryManagement
             button.GetComponent<Button>().onClick.AddListener(usage.ClickButton);
         }
 
+        public void SetInteractableItems(bool value)
+        {
+            int childCount = _content.childCount;
+            
+            for (int i = 0; i < childCount; i++)
+                _content.GetChild(i).GetComponent<Button>().interactable = value;
+        }
+        
         private string GetText(Item item)
         {
             float amount = item.Data.GetAmount();
@@ -69,9 +76,9 @@ namespace Character.ItemManagement.InventoryManagement
 
         public void Clear()
         {
-            var length = _content.childCount;
-
-            for (int i = 0; i < length; i++)
+            int childCount = _content.childCount;
+            
+            for (int i = 0; i < childCount; i++)
                 Destroy(_content.GetChild(i).gameObject);
         }
     }

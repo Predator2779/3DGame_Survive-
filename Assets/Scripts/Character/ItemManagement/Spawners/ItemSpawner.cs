@@ -9,28 +9,28 @@ namespace Character.ItemManagement.Spawners
 
         private Transform _pathObjs;
         private Transform _parent;
-        
+
         private void OnValidate() => _pathObjs ??= GameObject.Find("ITEMS").transform;
 
-        public void SpawnItem(Item item)
-        {
-            var data = item.Data;
-            
-            var clone = Instantiate
-            (
-                    item,
-                    _spawnPosition.position,
-                    Quaternion.identity
-            );
+        private void Start() => _pathObjs ??= GameObject.Find("ITEMS").transform;
 
+        public void Spawn(Item item)
+        {
             _parent ??= Instantiate
             (
                     new GameObject(name: $"{name}_items"),
                     parent: _pathObjs
             ).transform;
-
-            clone.transform.SetParent(_parent);
-            clone.GetComponent<Item>().Data = data;
+            
+            var clone = Instantiate
+            (
+                    item,
+                    _spawnPosition.position,
+                    Quaternion.identity,
+                    _parent
+            );
+            
+            clone.GetComponent<Item>().Data = item.Data;
         }
     }
 }

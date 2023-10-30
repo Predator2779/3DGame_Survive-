@@ -8,23 +8,18 @@ namespace Character.ItemManagement.Factory
     {
         private ItemConverter _itemConverter;
 
-        private void OnValidate() => _itemConverter ??= GetComponent<ItemConverter>();
-
-        protected override void Start()
+        protected override void SetNullableFields()
         {
-            base.Start();
-
+            base.SetNullableFields();
+            
             _itemConverter ??= GetComponent<ItemConverter>();
         }
 
         protected override void SpawnItem(Item item)
         {
-            var newItem = _itemConverter.ConvertItem(item);
-            
-            Spawn(newItem);
+            Spawn(_itemConverter.ConvertItem(item));
             Remove(item);
-            
-            GetInventory().RefreshDisplay();
+            StartTimer();
         }
     }
 }

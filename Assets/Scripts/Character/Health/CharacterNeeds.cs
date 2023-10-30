@@ -26,13 +26,7 @@ namespace Character.Health
 
         private Timer _timer;
 
-        private void Start()
-        {
-            _timer = new Timer(_checkVitalSigns, false);
-
-            _waterPoints = 100f;
-            _foodPoints = 100f;
-        }
+        private void Start() => _timer = new Timer(_checkVitalSigns, false);
 
         private void Update() => ReducedVitalSigns();
 
@@ -77,7 +71,7 @@ namespace Character.Health
             if (mainPoints + points > 100f) mainPoints = 100f;
             else if (mainPoints + points < 0) mainPoints = 0;
             else mainPoints += points;
-            
+
             DisplayIndicators();
         }
     }

@@ -1,6 +1,5 @@
 ﻿using Character.ItemManagement.Items;
 using General;
-using UnityEngine;
 
 namespace Character.ItemManagement.InventoryManagement
 {
@@ -13,7 +12,7 @@ namespace Character.ItemManagement.InventoryManagement
 
             Initialize();
         }
-        
+
         private readonly Inventory _mainInventory;
         private readonly Inventory _supportiveInventory;
 
@@ -27,18 +26,29 @@ namespace Character.ItemManagement.InventoryManagement
             EventHandler.IsInventoryInteract = displayActive;
         }
 
+        public void SetInteractableItems(bool value)
+        {
+            _mainInventory.GetDrawer().SetInteractableItems(value);
+            _supportiveInventory.GetDrawer().SetInteractableItems(value);
+        }
+
         private void GiveItem(Item item, Inventory inventory)
         {
-            if (inventory == _mainInventory) Exchange(_mainInventory, _supportiveInventory, item);
+            if (inventory == _mainInventory)
+            {
+                Exchange(_mainInventory, _supportiveInventory, item);
+                
+                return;
+            }
 
-            if (inventory == _supportiveInventory) Exchange( _supportiveInventory, _mainInventory,item);
+            if (inventory == _supportiveInventory) Exchange(_supportiveInventory, _mainInventory, item);
         }
 
         private void Exchange(Inventory fromInv, Inventory toInv, Item item)
         {
             toInv.AddItem(item);
             fromInv.RemoveItem(item);
-            
+
             toInv.RefreshDisplay();
             fromInv.RefreshDisplay();
         }
