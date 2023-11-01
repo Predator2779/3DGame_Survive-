@@ -3142,7 +3142,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
       propertyPath: Mute
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1aa96659cf2ef8b40b8da3bf6d185d7b, type: 3}
+    - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.99246216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
+      value: 0.6555557
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.20605469
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596423691223404555, guid: c62b37d83e1e37d44913bb3f9c15dd2f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
