@@ -1,7 +1,7 @@
 ﻿using Character.ItemManagement.Items;
 using UnityEngine;
 
-namespace Character.ItemManagement.Factory
+namespace Character.ItemManagement.Machines
 {
     [RequireComponent(typeof(ItemConverter))]
     public class ConvertMachine : MachineTool

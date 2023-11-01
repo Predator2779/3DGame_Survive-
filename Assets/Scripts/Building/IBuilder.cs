@@ -7,10 +7,11 @@ namespace Building
 {
     public interface IBuilder
     {
-        public void Build(ResourcesPackage resourcesPackage, Vector3 position, Quaternion rotation);
-        public ResourcesPackage Demolish();
-        public bool CheckRequirements(ResourcesPackage resourcesPackage);
-
+        public void Build(Vector3 position, Quaternion rotation);
+        public List<Resource> Demolish();
+        public void SetConstruction(Construction construction);
         public void GiveResources(List<Resource> resources);
+        public void ReturnResources(BuildManager buildManager);
+        public bool CanBuild();
     }
 }

@@ -4,7 +4,7 @@ using Character.ItemManagement.Spawners;
 using Other;
 using UnityEngine;
 
-namespace Character.ItemManagement.Factory
+namespace Character.ItemManagement.Machines
 {
     [RequireComponent(typeof(Inventory))]
     [RequireComponent(typeof(ItemSpawner))]

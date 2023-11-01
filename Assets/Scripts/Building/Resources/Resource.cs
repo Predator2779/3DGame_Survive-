@@ -8,7 +8,7 @@ namespace Building.Resources
         [SerializeField] private Item _resource;
         [SerializeField] private int _count;
         
-        public ItemData GetData() => _resource.Data;
+        public Item GetItem() => _resource;
         public int GetCount() => _count;
     }
 }
