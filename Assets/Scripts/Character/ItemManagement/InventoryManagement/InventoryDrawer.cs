@@ -17,7 +17,7 @@ namespace Character.ItemManagement.InventoryManagement
         public void SetActive(Inventory inventory, bool value)
         {
             Clear();
-            
+
             if (value) EnableDisplay(inventory);
             else DisableDisplay();
         }
@@ -48,28 +48,35 @@ namespace Character.ItemManagement.InventoryManagement
             var button = Instantiate(_buttonPrefab, _content);
             button.name = "Icon";
             button.image.sprite = item.Data.GetIcon();
-            
+
             var usage = button.gameObject.AddComponent<UsageIcon>();
             usage.InitializeIcon(item, _inventory);
 
             button.transform.GetComponentInChildren<TMP_Text>().text = GetText(item);
             button.GetComponent<Button>().onClick.AddListener(usage.ClickButton);
         }
-        
+
         private string GetText(Item item)
         {
-            float amount = item.Data.GetAmount();
-            string amountText = $"{amount}";
+            string text = item.Data.GetName();
+            
+            if (item.TryGetComponent(out UsableItem usable))
+            {
+                float amount = usable.UsableData.GetAmount();
+                string amountText = $"{amount}";
 
-            if (amount >= 0) amountText = $"+{amount}";
+                if (amount >= 0) amountText = $"+{amount}";
 
-            return $"{item.Data.GetName()} {amountText}";
+                text += " " + amountText;
+            }
+
+            return text;
         }
 
         public void Clear()
         {
             int childCount = _content.childCount;
-            
+
             for (int i = 0; i < childCount; i++)
                 Destroy(_content.GetChild(i).gameObject);
         }
