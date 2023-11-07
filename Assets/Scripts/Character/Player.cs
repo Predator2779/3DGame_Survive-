@@ -16,9 +16,9 @@ namespace Character
             EventHandler.OnUsingItem.AddListener(UseItem);
         }
 
-        private void UseItem(UsableItem item, ItemManagement.InventoryManagement.Inventory inventory)
+        private void UseItem(Item item, ItemManagement.InventoryManagement.Inventory inventory)
         {
-            if (inventory != GetInventory()) return;
+            if (!item.Data.CanSelfUse() || inventory != GetInventory()) return;
             
             item.GetComponent<IUsable>().Use(this); // Try?
             inventory.RemoveItem(item);

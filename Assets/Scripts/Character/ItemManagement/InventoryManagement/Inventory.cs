@@ -20,16 +20,14 @@ namespace Character.ItemManagement.InventoryManagement
 
         public void AddItem(Item item)
         {
-            if (!Contains(item) && GetCount() < _size) _items.Add(item);
+            if (!_items.Contains(item) && _items.Count < _size) _items.Add(item);
         }
 
         public void RemoveItem(Item item)
         {
-            if (Contains(item)) _items.Remove(item);
+            if (_items.Contains(item)) _items.Remove(item);
         }
 
-        public bool Contains(Item item) => _items.Contains(item);
-        
         public Item GetItem(int index) => _items[index];
 
         public int GetCount() => _items.Count;
