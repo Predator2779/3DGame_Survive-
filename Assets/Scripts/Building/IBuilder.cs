@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Numerics;
-using Building.Resources;
+using Character.ItemManagement.Items;
 using Quaternion = UnityEngine.Quaternion;
 
 namespace Building
@@ -8,9 +8,7 @@ namespace Building
     public interface IBuilder
     {
         public void Build(Vector3 position, Quaternion rotation);
-        public List<Resource> Demolish();
-        public void SetConstruction(Construction construction);
-        public void GiveResources(List<Resource> resources);
+        public List<Item> Demolish();
         public void ReturnResources(BuildManager buildManager);
         public bool CanBuild();
     }

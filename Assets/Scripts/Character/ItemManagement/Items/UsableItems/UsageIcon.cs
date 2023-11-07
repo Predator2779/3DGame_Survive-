@@ -13,17 +13,18 @@ namespace Character.ItemManagement.Items.UsableItems
             _item = item;
             _inventory = boundInv;
         }
-        
+
         public void ClickButton()
         {
             if (EventHandler.IsInventoryInteract)
             {
                 EventHandler.OnGivingItem?.Invoke(_item, _inventory);
-                
+
                 return;
             }
-            
-            EventHandler.OnUsingItem?.Invoke(_item, _inventory);
+
+            if (_item.TryGetComponent(out UsableItem usable))
+                EventHandler.OnUsingItem?.Invoke(usable, _inventory);
         }
     }
 }

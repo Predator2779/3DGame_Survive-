@@ -4,7 +4,7 @@
     {
         public override void Use(Person person)
         {
-            person.GetCharacterNeeds().AddWater(Data.GetAmount());
+            person.GetCharacterNeeds().AddWater(UsableData.GetAmount());
         }
     }
 }

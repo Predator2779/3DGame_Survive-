@@ -4,7 +4,7 @@
     {
         public override void Use(Person person)
         {
-            person.GetHealth().TakeDamage(-Data.GetAmount());
+            person.GetHealth().TakeDamage(-UsableData.GetAmount());
         }
     }
 }
